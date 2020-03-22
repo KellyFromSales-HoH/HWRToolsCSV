@@ -181,17 +181,12 @@ namespace KellyTools
 				return;
 			}
 			town.m_dyes.removeRange(0, town.m_dyes.length());
-			print("name,cateogory,quality,default,cost,legacy points");
+			print("name,cateogory,quality,default,cost,dlc,legacy points");
 
 			for (uint i = 0; i < Materials::g_dyes.length(); i++)
 			{
 				auto dye = Materials::g_dyes[i];
-
-				if (!town.OwnsDye(dye))
-				{
-					town.GiveDye(dye);
-					print(Resources::GetString(dye.m_name) +","+ Materials::GetCategoryName(dye.m_category) +","+ dye.m_quality +","+ dye.m_default +","+ GetDyeCost(dye) +"," + dye.m_legacyPoints);
-				}
+					print(Resources::GetString(dye.m_name) +","+ Materials::GetCategoryName(dye.m_category) +","+ dye.m_quality +","+ dye.m_default +","+ GetDyeCost(dye) +","+ dye.m_dlc+ "," + dye.m_legacyPoints);
 			}
 		}
 
