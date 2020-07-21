@@ -64,6 +64,8 @@ class GuildHallBeastiaryTab : GuildHallMenuTab
 			int armor = GetParamInt(UnitPtr(), params, "armor", false, 0);
 			int resistance = GetParamInt(UnitPtr(), params, "resistance", false, 0);
 			int expReward = GetParamInt(UnitPtr(), params, "experience-reward", false, 0);
+			float mp_scaling = GetParamFloat(UnitPtr(), params, "mp-scale-fact", false, 0);
+			float ngpScale = GetParamFloat(UnitPtr(), params, "ngp-scale", false, 0);
 
 			auto wNewItem = wTemplate.Clone();
 			wNewItem.m_visible = true;
@@ -128,8 +130,7 @@ class GuildHallBeastiaryTab : GuildHallMenuTab
 				else
 					wAttuneLevel.m_visible = false;
 			}
-
-			print(Resources::GetString(unitName)+","+ formatThousands(expReward));
+			print(Resources::GetString(unitName)+","+ hp + "," + armor + "," + resistance + "," + mp_scaling + "," + ngpScale);
 
 			wList.AddChild(wNewItem);
 		}
